@@ -1,0 +1,10 @@
+cmake-build-debug/
+.idea/
+.vs/
+out/
+Debug/
+CMakeLists.txt.user
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
