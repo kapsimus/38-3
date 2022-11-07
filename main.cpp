@@ -13,14 +13,14 @@
 #include <QGraphicsPixmapItem>
 #include <QPainter>
 
-QImage blurImage(QImage image, int blurRadius) {
+QImage blurImage(QImage &image, const int blurRadius) {
     if (image.isNull()) return QImage();
     QGraphicsScene scene;
     QGraphicsPixmapItem item;
     item.setPixmap(QPixmap::fromImage(image));
-    auto blur = new QGraphicsBlurEffect();
-    blur->setBlurRadius(blurRadius/10.0);
-    item.setGraphicsEffect(blur);
+    QGraphicsBlurEffect blur;
+    blur.setBlurRadius(blurRadius/10.0);
+    item.setGraphicsEffect(&blur);
     scene.addItem(&item);
     QImage result(image.size(), QImage::Format_ARGB32);
     result.fill(Qt::transparent);
